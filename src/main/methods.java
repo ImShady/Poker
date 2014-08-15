@@ -87,7 +87,8 @@ public class methods
         String[] enc = encrypted.split("");
         System.out.println("the splittable:" + encrypted);
             System.out.println("It is: " + enc[0] + enc[1] + enc[2]);           
-        shift = Integer.parseInt(enc[0]);             
+        shift = Integer.parseInt(enc[0]);
+        encrypted = "";
         for (int b = 1; b < enc.length; b++) {
             encrypted = encrypted + enc[b];
         }
