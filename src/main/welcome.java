@@ -6,6 +6,12 @@
 
 package main;
 
+import java.awt.Color;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Scanner;
+import javax.swing.UIManager;
+
 /**
  *
  * @author Shady
@@ -15,11 +21,25 @@ public class welcome extends javax.swing.JFrame {
     /**
      * Creates new form welcome
      */
+    
+    String name;
+    
+    static ArrayList<String> user = new ArrayList<>();
+    static ArrayList<String> pass = new ArrayList<>();
+    
     public welcome() {
-        
+        try
+        {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        }
+        catch(Exception e)
+        {
+            System.out.println("Look and feel");
+        }
         this.getContentPane().setSize(800,400);
         this.setResizable(false);
         initComponents();
+        jPanelPrompts.setOpaque(false);
     }
 
     /**
@@ -31,38 +51,132 @@ public class welcome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jPanelPrompts = new javax.swing.JPanel();
+        txtUsername = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
+        lblTaken = new javax.swing.JLabel();
+        btnPlay = new javax.swing.JButton();
+        btnSignUp = new javax.swing.JButton();
+        lblBG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SR Poker");
         setMinimumSize(new java.awt.Dimension(622, 361));
         getContentPane().setLayout(null);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setContentAreaFilled(false);
-        getContentPane().add(jButton1);
-        jButton1.setBounds(20, 230, 140, 50);
+        txtUsername.setBackground(java.awt.Color.lightGray);
+        txtUsername.setText("Username");
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton2.setContentAreaFilled(false);
-        getContentPane().add(jButton2);
-        jButton2.setBounds(430, 240, 180, 40);
+        txtPassword.setBackground(java.awt.Color.lightGray);
+        txtPassword.setText("..........");
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton3.setContentAreaFilled(false);
-        getContentPane().add(jButton3);
-        jButton3.setBounds(200, 270, 170, 60);
+        javax.swing.GroupLayout jPanelPromptsLayout = new javax.swing.GroupLayout(jPanelPrompts);
+        jPanelPrompts.setLayout(jPanelPromptsLayout);
+        jPanelPromptsLayout.setHorizontalGroup(
+            jPanelPromptsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPromptsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelPromptsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtUsername)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+        jPanelPromptsLayout.setVerticalGroup(
+            jPanelPromptsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPromptsLayout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
+        );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/welcomeBG.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 620, 340);
+        getContentPane().add(jPanelPrompts);
+        jPanelPrompts.setBounds(150, 220, 220, 120);
+
+        lblTaken.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        getContentPane().add(lblTaken);
+        lblTaken.setBounds(20, 310, 250, 20);
+
+        btnPlay.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnPlay.setBorderPainted(false);
+        btnPlay.setContentAreaFilled(false);
+        btnPlay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlayActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnPlay);
+        btnPlay.setBounds(420, 230, 170, 50);
+
+        btnSignUp.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnSignUp.setBorderPainted(false);
+        btnSignUp.setContentAreaFilled(false);
+        btnSignUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignUpActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSignUp);
+        btnSignUp.setBounds(400, 280, 220, 50);
+
+        lblBG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/welcomeBG.png"))); // NOI18N
+        getContentPane().add(lblBG);
+        lblBG.setBounds(0, 0, 620, 340);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
+        new SignUpForm().setVisible(true);
+    }//GEN-LAST:event_btnSignUpActionPerformed
+
+    private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayActionPerformed
+        
+        user.removeAll(user);
+        pass.removeAll(pass);
+        
+        String username = txtUsername.getText(), password = txtPassword.getText();
+        File usernames = new File ("usernames.dat"); File passwords = new File ("passwords.dat");     
+        
+        try
+        {
+            Scanner userCheck = new Scanner (usernames); Scanner passCheck = new Scanner (passwords);
+            while(userCheck.hasNext())
+            {
+                String thisUser = userCheck.next(); String thisPass = passCheck.next();
+                user.add(thisUser);
+                pass.add(thisPass);
+            }
+            
+            for(int i = 0; i < user.size(); i++)
+            {
+                if(username.equalsIgnoreCase(user.get(i)))
+                {
+                    if(methods.encrypt(password).equals(pass.get(i)))
+                    {
+                        System.out.println("Login successful.");
+                        new board().setVisible(true); this.dispose();
+                        break;
+                    }                    
+                    else
+                    {                        
+                        lblTaken.setForeground(Color.red); lblTaken.setText("Incorrect username or password."); 
+                        break;
+                    }
+                }
+                else if(i + 1 == user.size())
+                {
+                   lblTaken.setForeground(Color.red); lblTaken.setText("Incorrect username or password.");
+                }
+            }
+            
+        }catch(Exception e)
+        {
+            System.out.println("Error occured: ");
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_btnPlayActionPerformed
 
     /**
      * @param args the command line arguments
@@ -100,9 +214,12 @@ public class welcome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnPlay;
+    private javax.swing.JButton btnSignUp;
+    private javax.swing.JPanel jPanelPrompts;
+    private javax.swing.JLabel lblBG;
+    private javax.swing.JLabel lblTaken;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }
