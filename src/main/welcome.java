@@ -153,7 +153,10 @@ public class welcome extends javax.swing.JFrame {
             {
                 if(username.equalsIgnoreCase(user.get(i)))
                 {
-                    if(methods.encrypt(password).equals(pass.get(i)))
+                    System.out.println("here");
+                    System.out.println(pass.get(i));
+                    System.out.println(password);
+                    if(password.equals(methods.decrypt(pass.get(i))))
                     {
                         System.out.println("Login successful.");
                         new board().setVisible(true); this.dispose();
