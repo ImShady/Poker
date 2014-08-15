@@ -34,16 +34,17 @@ public class welcome extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SR Poker");
-        setMinimumSize(new java.awt.Dimension(622, 341));
+        setMinimumSize(new java.awt.Dimension(622, 361));
         getContentPane().setLayout(null);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("Login");
+        jButton1.setContentAreaFilled(false);
         getContentPane().add(jButton1);
-        jButton1.setBounds(270, 150, 90, 30);
+        jButton1.setBounds(20, 230, 140, 50);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton2.setText("Register");
@@ -51,9 +52,14 @@ public class welcome extends javax.swing.JFrame {
         jButton2.setBounds(400, 150, 90, 30);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton3.setText("Play");
+        jButton3.setContentAreaFilled(false);
         getContentPane().add(jButton3);
-        jButton3.setBounds(130, 150, 90, 30);
+        jButton3.setBounds(200, 270, 170, 60);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/welcomeBG.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 620, 340);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -97,5 +103,6 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
