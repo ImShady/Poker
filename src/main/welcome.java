@@ -47,9 +47,9 @@ public class welcome extends javax.swing.JFrame {
         jButton1.setBounds(20, 230, 140, 50);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton2.setText("Register");
+        jButton2.setContentAreaFilled(false);
         getContentPane().add(jButton2);
-        jButton2.setBounds(400, 150, 90, 30);
+        jButton2.setBounds(430, 240, 180, 40);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton3.setContentAreaFilled(false);
