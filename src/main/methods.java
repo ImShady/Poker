@@ -64,17 +64,15 @@ public class methods {
         String decrypted = "";
         int shift;
         String[] enc = encrypted.split("");
-        System.out.println("the splittable:" + encrypted);
-        System.out.println("It is: " + enc[0] + enc[1] + enc[2]);
         shift = Integer.parseInt(enc[0]);
         encrypted = "";
         for (int b = 1; b < enc.length; b++) {
             encrypted = encrypted + enc[b];
         }
-        String[] encrypt = encrypted.split("");
+        enc = encrypted.split("");
         for (int c = 0; c < encrypted.length(); c++) {
             for (int d = 0; d < array.length; d++) {
-                if (encrypt[c].equals(array[d])) {
+                if (enc[c].equals(array[d])) {
                     if ((d - shift) < 0) {
                         decrypted = decrypted + array[d - shift + array.length];
                     } else {
@@ -83,7 +81,6 @@ public class methods {
                 }
             }
         }
-        System.out.println("Decrypted: " + decrypted);
         return decrypted;
     }
 }
