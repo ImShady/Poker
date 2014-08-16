@@ -21,9 +21,9 @@ public class board extends javax.swing.JFrame {
     public board()
     {
         this.getContentPane().setBackground(new Color(34,139,34));
-        new ClientGUI("135.23.160.82", 4444);
         //int players = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter the additional number of players: ", "Players", JOptionPane.QUESTION_MESSAGE));
         initComponents();
+        lblPlayer1.setText(welcome.getUser());        
     }
 
     /**
@@ -35,37 +35,37 @@ public class board extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        image1 = new javax.swing.JLabel();
+        blBoard = new javax.swing.JLabel();
+        lblPlayer4 = new javax.swing.JLabel();
+        lblPlayer4Chips = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         image2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblPlayer1 = new javax.swing.JLabel();
+        lblPlayer1Chips = new javax.swing.JLabel();
         image3 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        lblPlayer3 = new javax.swing.JLabel();
+        lblPlayer3Chips = new javax.swing.JLabel();
         image4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        image5 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        lblPlayer2 = new javax.swing.JLabel();
+        lblPlayer2Chips = new javax.swing.JLabel();
+        lblPlayer5 = new javax.swing.JLabel();
+        lblPlayer5Chips = new javax.swing.JLabel();
         image6 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        lblPlayer6 = new javax.swing.JLabel();
+        lblPlayer6Chips = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 153, 0));
         setResizable(false);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/board.png"))); // NOI18N
+        blBoard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/board.png"))); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setForeground(java.awt.Color.orange);
-        jLabel1.setText("Ramy");
+        lblPlayer4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblPlayer4.setForeground(java.awt.Color.orange);
+        lblPlayer4.setText("Ramy");
 
-        image1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/playerdefault.png"))); // NOI18N
+        lblPlayer4Chips.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/playerdefault.png"))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setForeground(java.awt.Color.orange);
@@ -73,23 +73,23 @@ public class board extends javax.swing.JFrame {
 
         image2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/playerdefault.png"))); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setForeground(java.awt.Color.orange);
-        jLabel4.setText("Ramy");
+        lblPlayer1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblPlayer1.setForeground(java.awt.Color.orange);
+        lblPlayer1.setText("Ramy");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel5.setForeground(java.awt.Color.orange);
-        jLabel5.setText("Total Chips: ");
+        lblPlayer1Chips.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblPlayer1Chips.setForeground(java.awt.Color.orange);
+        lblPlayer1Chips.setText("Total Chips: ");
 
         image3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/playerdefault.png"))); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel6.setForeground(java.awt.Color.orange);
-        jLabel6.setText("Ramy");
+        lblPlayer3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblPlayer3.setForeground(java.awt.Color.orange);
+        lblPlayer3.setText("Ramy");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel7.setForeground(java.awt.Color.orange);
-        jLabel7.setText("Total Chips: ");
+        lblPlayer3Chips.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblPlayer3Chips.setForeground(java.awt.Color.orange);
+        lblPlayer3Chips.setText("Total Chips: ");
 
         image4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/playerdefault.png"))); // NOI18N
 
@@ -97,29 +97,29 @@ public class board extends javax.swing.JFrame {
         jLabel8.setForeground(java.awt.Color.orange);
         jLabel8.setText("Total Chips: ");
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel9.setForeground(java.awt.Color.orange);
-        jLabel9.setText("Ramy");
+        lblPlayer2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblPlayer2.setForeground(java.awt.Color.orange);
+        lblPlayer2.setText("Ramy");
 
-        image5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/playerdefault.png"))); // NOI18N
+        lblPlayer2Chips.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/playerdefault.png"))); // NOI18N
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel10.setForeground(java.awt.Color.orange);
-        jLabel10.setText("Ramy");
+        lblPlayer5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblPlayer5.setForeground(java.awt.Color.orange);
+        lblPlayer5.setText("Ramy");
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel11.setForeground(java.awt.Color.orange);
-        jLabel11.setText("Total Chips: ");
+        lblPlayer5Chips.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblPlayer5Chips.setForeground(java.awt.Color.orange);
+        lblPlayer5Chips.setText("Total Chips: ");
 
         image6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/playerdefault.png"))); // NOI18N
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel12.setForeground(java.awt.Color.orange);
-        jLabel12.setText("Total Chips: ");
+        lblPlayer6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblPlayer6.setForeground(java.awt.Color.orange);
+        lblPlayer6.setText("Ramy");
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel13.setForeground(java.awt.Color.orange);
-        jLabel13.setText("Ramy");
+        lblPlayer6Chips.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblPlayer6Chips.setForeground(java.awt.Color.orange);
+        lblPlayer6Chips.setText("Total Chips: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -129,18 +129,18 @@ public class board extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(image5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel11))
+                        .addComponent(lblPlayer2Chips, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblPlayer5Chips))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel10)
+                        .addComponent(lblPlayer5)
                         .addGap(32, 32, 32)))
                 .addGap(213, 213, 213)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(image6, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel12))
+                        .addComponent(lblPlayer6Chips))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel13)
+                        .addComponent(lblPlayer6)
                         .addGap(32, 32, 32)))
                 .addGap(322, 322, 322))
             .addGroup(layout.createSequentialGroup()
@@ -150,9 +150,9 @@ public class board extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(image3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel7))
+                                .addComponent(lblPlayer3Chips))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel6)
+                                .addComponent(lblPlayer3)
                                 .addGap(32, 32, 32)))
                         .addGap(209, 209, 209)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,27 +160,27 @@ public class board extends javax.swing.JFrame {
                                 .addComponent(image4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel8))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel9)
+                                .addComponent(lblPlayer2)
                                 .addGap(32, 32, 32))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(image1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblPlayer4Chips, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel3))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel1)
+                                .addComponent(lblPlayer4)
                                 .addGap(32, 32, 32)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2)
+                        .addComponent(blBoard)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(image2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel5))
+                                .addComponent(lblPlayer1Chips))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel4)
+                                .addComponent(lblPlayer1)
                                 .addGap(32, 32, 32)))))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
@@ -190,33 +190,33 @@ public class board extends javax.swing.JFrame {
                 .addContainerGap(28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(image5)
+                        .addComponent(lblPlayer2Chips)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel10)
+                        .addComponent(lblPlayer5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel11))
+                        .addComponent(lblPlayer5Chips))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(image6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel13)
+                        .addComponent(lblPlayer6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel12)))
+                        .addComponent(lblPlayer6Chips)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(blBoard)
                         .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(image2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel4)
+                        .addComponent(lblPlayer1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5)
+                        .addComponent(lblPlayer1Chips)
                         .addGap(52, 52, 52))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(image1)
+                        .addComponent(lblPlayer4Chips)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel1)
+                        .addComponent(lblPlayer4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)
                         .addGap(54, 54, 54)))
@@ -224,13 +224,13 @@ public class board extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(image3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel6)
+                        .addComponent(lblPlayer3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7))
+                        .addComponent(lblPlayer3Chips))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(image4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel9)
+                        .addComponent(lblPlayer2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel8)))
                 .addGap(17, 17, 17))
@@ -275,24 +275,24 @@ public class board extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel image1;
+    private javax.swing.JLabel blBoard;
     private javax.swing.JLabel image2;
     private javax.swing.JLabel image3;
     private javax.swing.JLabel image4;
-    private javax.swing.JLabel image5;
     private javax.swing.JLabel image6;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lblPlayer1;
+    private javax.swing.JLabel lblPlayer1Chips;
+    private javax.swing.JLabel lblPlayer2;
+    private javax.swing.JLabel lblPlayer2Chips;
+    private javax.swing.JLabel lblPlayer3;
+    private javax.swing.JLabel lblPlayer3Chips;
+    private javax.swing.JLabel lblPlayer4;
+    private javax.swing.JLabel lblPlayer4Chips;
+    private javax.swing.JLabel lblPlayer5;
+    private javax.swing.JLabel lblPlayer5Chips;
+    private javax.swing.JLabel lblPlayer6;
+    private javax.swing.JLabel lblPlayer6Chips;
     // End of variables declaration//GEN-END:variables
 }

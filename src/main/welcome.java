@@ -220,6 +220,12 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel lblBG;
     private javax.swing.JLabel lblTaken;
     private javax.swing.JPasswordField txtPassword;
-    private javax.swing.JTextField txtUsername;
+    private static javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
+
+    public static String getUser()
+    {
+        return txtUsername.getText();
+    }
+    
 }
