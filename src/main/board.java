@@ -21,7 +21,8 @@ public class board extends javax.swing.JFrame {
     public board()
     {
         this.getContentPane().setBackground(new Color(34,139,34));
-        int players = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter the additional number of players: ", "Players", JOptionPane.QUESTION_MESSAGE));
+        new ClientGUI("135.23.160.82", 4444);
+        //int players = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter the additional number of players: ", "Players", JOptionPane.QUESTION_MESSAGE));
         initComponents();
     }
 
