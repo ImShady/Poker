@@ -60,6 +60,8 @@ public class Server
     private void waitForConnection() throws IOException
     {
         System.out.println("Waiting for someone to connect...\n");
+        connection = server.accept();
+        System.out.println("Now connected to " + connection.getInetAddress().getHostAddress());
     }
     
     private void setupStreams() throws IOException
@@ -84,7 +86,4 @@ public class Server
             System.out.println("Closing Streams failed: " + e.getMessage());
         }
     }
-    
-    
-
 }
