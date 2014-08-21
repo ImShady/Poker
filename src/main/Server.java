@@ -162,16 +162,14 @@ public class Server
         String username;
         // the only type of message a will receive
         ChatMessage cm;
-        // the date I connect
-        String date;
 
-        // Constructore
+        // Constructor
         ClientThread(Socket socket) {
             // a unique id
-            id = ++uniqueId;
+            id = uniqueId++;
             this.socket = socket;
-            /* Creating both Data Stream */
-            System.out.println("Thread trying to create Object Input/Output Streams");
+            /* Creating both data streams */
+            System.out.println("The thread is trying to create input/output streams");
             try {
                 // create output first
                 sOutput = new ObjectOutputStream(socket.getOutputStream());
@@ -180,16 +178,16 @@ public class Server
                 username = (String) sInput.readObject();
                 System.out.println(username + " just connected.");
             } catch (IOException e) {
-                System.out.println("Exception creating new Input/output Streams: " + e);
+                System.out.println("Error creating new input/output streams: " + e);
                 return;
             } // have to catch ClassNotFoundException
             // but I read a String, I am sure it will work
             catch (ClassNotFoundException e) {
             }
-            date = new Date().toString() + "\n";
         }
 
         // what will run forever
+        @Override
         public void run() {
             // to loop until LOGOUT
             boolean keepGoing = true;
@@ -198,7 +196,7 @@ public class Server
                 try {
                     cm = (ChatMessage) sInput.readObject();
                 } catch (IOException e) {
-                    System.out.println(username + " Exception reading Streams: " + e);
+                    System.out.println(username + " Error reading streams: " + e);
                     break;
                 } catch (ClassNotFoundException e2) {
                     break;
@@ -213,7 +211,7 @@ public class Server
                         broadcast(username + ": " + message);
                         break;
                     case ChatMessage.LOGOUT:
-                        System.out.println(username + " disconnected with a LOGOUT message.");
+                        System.out.println(username + " disconnected with a log-out message.");
                         keepGoing = false;
                         break;
                     case ChatMessage.WHOISIN:
@@ -221,7 +219,7 @@ public class Server
                         // scan al the users connected
                         for (int i = 0; i < al.size(); ++i) {
                             ClientThread ct = al.get(i);
-                            writeMsg((i + 1) + ") " + ct.username + " since " + ct.date);
+                            writeMsg((i + 1) + ") " + ct.username);
                         }
                         break;
                 }
@@ -269,8 +267,8 @@ public class Server
                 sOutput.writeObject(msg);
             } // if an error occurs, do not abort just inform the user
             catch (IOException e) {
-                System.out.println("Error sending message to " + username);
-                System.out.println(e.toString());
+                System.out.println("Error sending message to " + username + "\n" + e.toString());
+                //System.out.println(e.toString());
             }
             return true;
         }
