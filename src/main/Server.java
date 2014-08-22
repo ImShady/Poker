@@ -16,7 +16,7 @@ import java.util.*;
 public class Server 
 {
 	// an ArrayList to keep the list of the Client
-	private ArrayList<ClientThread> al;
+	public static ArrayList<ClientThread> al;
 	// if I am in a GUI
 	private ServerGUI sg;
 	// to display time
@@ -24,6 +24,9 @@ public class Server
 	private int port;
 	// the boolean that will be turned of to stop the server
 	private boolean keepGoing;
+        
+        
+        String info;
     /*
      *  server constructor that receive the port to listen to for connection as parameter
      *  in console
@@ -53,10 +56,25 @@ public class Server
                 // if I was asked to stop
                 if (!keepGoing) {
                     break;
-                }
-                ClientThread t = new ClientThread(socket);  // make a thread of it
-                al.add(t);									// save it in the ArrayList
+                }                
+                
+                ClientThread t = new ClientThread(socket);  // make a thread of it									// save it in the ArrayList
                 t.start();
+                al.add(t);                
+                System.out.println("List of the users connected:");
+                // scan all the users connected
+                for (int i = 0; i < al.size(); i++) {
+                    ClientThread ct = al.get(i);                    
+                    broadcast("cuser: " + ct.username);
+                    System.out.println((i + 1) + ") " + ct.username);                                                      
+                }                                         
+                
+//                if(info.contains("username:"))
+//                {
+//                    broadcast("New player: " + info.substring(10));
+//                }  
+                
+                System.out.println(info.substring(10) + " just connected.");                                                            
             }
             // I was asked to stop
             try {
@@ -104,7 +122,7 @@ public class Server
         // add HH:mm:ss and \n to the message
         String messageLf = message + "\n";
         // display message on console or GUI
-        System.out.print(messageLf);
+        //System.out.print(messageLf);
 		// we loop in reverse order in case we would have to remove a Client
         // because it has disconnected
         for (int i = al.size(); --i >= 0;) {
@@ -120,11 +138,16 @@ public class Server
     // for a client who logoff using the LOGOUT message
     synchronized void remove(String username) {
         // scan the array list until we found the Id
-        for (int i = 0; i < al.size(); ++i) {
+        for (int i = 0; i < al.size(); i++) {
             ClientThread ct = al.get(i);
             // found it
-            if (ct.getUser() == username) {
+            System.out.println(ct.username);
+            System.out.println(username);
+            if (ct.username.equals(username)) {
                 al.remove(i);
+                broadcast("remove: " + username);
+                System.out.println("remove's: ");
+                ct.tellWho();                
                 return;
             }
         }
@@ -155,9 +178,9 @@ public class Server
         ObjectInputStream sInput;
         ObjectOutputStream sOutput;
         // the Username of the Client
-        String username;
         // the only type of message a will receive
-        ChatMessage cm; 
+        ChatMessage cm;
+        String username;
 
         // Constructor
         ClientThread(Socket socket) {
@@ -170,8 +193,9 @@ public class Server
                 sOutput = new ObjectOutputStream(socket.getOutputStream());
                 sInput = new ObjectInputStream(socket.getInputStream());
                 // read the username
-                username = (String) sInput.readObject();
-                System.out.println(username + " just connected.");
+                info = (String) sInput.readObject();
+                username = info.substring(10);
+                
             } catch (IOException e) {
                 System.out.println("Error creating new input/output streams: " + e);
                 return;
@@ -190,35 +214,37 @@ public class Server
             while (keepGoing) {
                 // read a String (which is an object)
                 try {
-                    cm = (ChatMessage) sInput.readObject();
+                    //cm = (ChatMessage) sInput.readObject();
+                    info =  (String) sInput.readObject();
                 } catch (IOException e) {
                     System.out.println(username + " Error reading streams: " + e);
                     break;
                 } catch (ClassNotFoundException e2) {
                     break;
                 }
+                
                 // the messaage part of the ChatMessage
-                String message = cm.getMessage();
+               // String message = cm.getMessage();
 
                 // Switch on the type of message receive
-                switch (cm.getType()) {
-
-                    case ChatMessage.MESSAGE:
-                        broadcast(username + ": " + message);
-                        break;
-                    case ChatMessage.LOGOUT:
-                        System.out.println(username + " disconnected with a log-out message.");
-                        keepGoing = false;
-                        break;
-                    case ChatMessage.WHOISIN:
-                        writeMsg("List of the users connected at \n");
-                        // scan al the users connected
-                        for (int i = 0; i < al.size(); ++i) {
-                            ClientThread ct = al.get(i);
-                            writeMsg((i + 1) + ") " + ct.username);
-                        }
-                        break;
-                }
+//                switch (cm.getType()) {
+//
+//                    case ChatMessage.MESSAGE:
+//                        broadcast(username + ": " + message);
+//                        break;
+//                    case ChatMessage.LOGOUT:
+//                        System.out.println(username + " disconnected with a log-out message.");
+//                        keepGoing = false;
+//                        break;
+//                    case ChatMessage.WHOISIN:
+//                        writeMsg("List of the users connected at \n");
+//                        // scan al the users connected
+//                        for (int i = 0; i < al.size(); ++i) {
+//                            ClientThread ct = al.get(i);
+//                            writeMsg((i + 1) + ") " + ct.username);
+//                        }
+//                        break;
+//                }
             }
 			// remove myself from the arrayList containing the list of the
             // connected Clients
@@ -268,5 +294,14 @@ public class Server
             }
             return true;
         }
-    }
+        
+        public void tellWho()
+        {
+            for (int i = 0; i < al.size(); i++) {
+                ClientThread ct = al.get(i);
+                System.out.println((i + 1) + ") " + ct.username);
+            }
+        }        
+        
+    }      
 }

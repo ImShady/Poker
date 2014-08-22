@@ -50,7 +50,7 @@ public class board extends javax.swing.JFrame {
         lblPlayer1.setText(welcome.getUser());
         int portNumber = 4444;
         String serverAddress = "localhost";
-        String userName = welcome.getUser();
+        String userName = "username: " + welcome.getUser();
                 
         // create the Client object
         board client = new board(serverAddress, portNumber, userName);
@@ -168,19 +168,19 @@ public class board extends javax.swing.JFrame {
     private void initComponents() {
 
         blBoard = new javax.swing.JLabel();
-        lblPlayer4 = new javax.swing.JLabel();
-        lblPlayer4Chips = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        image2 = new javax.swing.JLabel();
+        image1 = new javax.swing.JLabel();
         lblPlayer1 = new javax.swing.JLabel();
         lblPlayer1Chips = new javax.swing.JLabel();
+        image2 = new javax.swing.JLabel();
+        lblPlayer2Chips = new javax.swing.JLabel();
+        lblPlayer2 = new javax.swing.JLabel();
         image3 = new javax.swing.JLabel();
         lblPlayer3 = new javax.swing.JLabel();
         lblPlayer3Chips = new javax.swing.JLabel();
+        lblPlayer4 = new javax.swing.JLabel();
         image4 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        lblPlayer2 = new javax.swing.JLabel();
-        lblPlayer2Chips = new javax.swing.JLabel();
+        lblPlayerChips4 = new javax.swing.JLabel();
+        image5 = new javax.swing.JLabel();
         lblPlayer5 = new javax.swing.JLabel();
         lblPlayer5Chips = new javax.swing.JLabel();
         image6 = new javax.swing.JLabel();
@@ -193,17 +193,7 @@ public class board extends javax.swing.JFrame {
 
         blBoard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/board.png"))); // NOI18N
 
-        lblPlayer4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblPlayer4.setForeground(java.awt.Color.orange);
-        lblPlayer4.setText("Ramy");
-
-        lblPlayer4Chips.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/playerdefault.png"))); // NOI18N
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setForeground(java.awt.Color.orange);
-        jLabel3.setText("Total Chips: ");
-
-        image2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/playerdefault.png"))); // NOI18N
+        image1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/playerdefault.png"))); // NOI18N
 
         lblPlayer1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblPlayer1.setForeground(java.awt.Color.orange);
@@ -213,31 +203,41 @@ public class board extends javax.swing.JFrame {
         lblPlayer1Chips.setForeground(java.awt.Color.orange);
         lblPlayer1Chips.setText("Total Chips: ");
 
+        image2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/playerdefault.png"))); // NOI18N
+
+        lblPlayer2Chips.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblPlayer2Chips.setForeground(java.awt.Color.orange);
+        lblPlayer2Chips.setText("Total Chips: ");
+
+        lblPlayer2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblPlayer2.setForeground(java.awt.Color.orange);
+        lblPlayer2.setText("Empty");
+
         image3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/playerdefault.png"))); // NOI18N
 
         lblPlayer3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblPlayer3.setForeground(java.awt.Color.orange);
-        lblPlayer3.setText("Ramy");
+        lblPlayer3.setText("Empty");
 
         lblPlayer3Chips.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblPlayer3Chips.setForeground(java.awt.Color.orange);
         lblPlayer3Chips.setText("Total Chips: ");
 
+        lblPlayer4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblPlayer4.setForeground(java.awt.Color.orange);
+        lblPlayer4.setText("Empty");
+
         image4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/playerdefault.png"))); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel8.setForeground(java.awt.Color.orange);
-        jLabel8.setText("Total Chips: ");
+        lblPlayerChips4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblPlayerChips4.setForeground(java.awt.Color.orange);
+        lblPlayerChips4.setText("Total Chips: ");
 
-        lblPlayer2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblPlayer2.setForeground(java.awt.Color.orange);
-        lblPlayer2.setText("Ramy");
-
-        lblPlayer2Chips.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/playerdefault.png"))); // NOI18N
+        image5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/playerdefault.png"))); // NOI18N
 
         lblPlayer5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblPlayer5.setForeground(java.awt.Color.orange);
-        lblPlayer5.setText("Ramy");
+        lblPlayer5.setText("Empty");
 
         lblPlayer5Chips.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblPlayer5Chips.setForeground(java.awt.Color.orange);
@@ -247,7 +247,7 @@ public class board extends javax.swing.JFrame {
 
         lblPlayer6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblPlayer6.setForeground(java.awt.Color.orange);
-        lblPlayer6.setText("Ramy");
+        lblPlayer6.setText("Empty");
 
         lblPlayer6Chips.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblPlayer6Chips.setForeground(java.awt.Color.orange);
@@ -261,7 +261,7 @@ public class board extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lblPlayer2Chips, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(image5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblPlayer5Chips))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lblPlayer5)
@@ -289,8 +289,8 @@ public class board extends javax.swing.JFrame {
                         .addGap(209, 209, 209)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(image4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel8))
+                                .addComponent(image2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblPlayer2Chips))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(lblPlayer2)
                                 .addGap(32, 32, 32))))
@@ -298,18 +298,16 @@ public class board extends javax.swing.JFrame {
                         .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblPlayer4Chips, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel3))
+                                .addComponent(image4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblPlayerChips4))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblPlayer4)
                                 .addGap(32, 32, 32)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(blBoard)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(image2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(image1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(lblPlayer1Chips))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(lblPlayer1)
@@ -322,7 +320,7 @@ public class board extends javax.swing.JFrame {
                 .addContainerGap(28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblPlayer2Chips)
+                        .addComponent(image5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblPlayer5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -339,18 +337,18 @@ public class board extends javax.swing.JFrame {
                         .addComponent(blBoard)
                         .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(image2)
+                        .addComponent(image1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblPlayer1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblPlayer1Chips)
                         .addGap(52, 52, 52))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblPlayer4Chips)
+                        .addComponent(image4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblPlayer4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
+                        .addComponent(lblPlayerChips4)
                         .addGap(54, 54, 54)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -360,11 +358,11 @@ public class board extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblPlayer3Chips))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(image4)
+                        .addComponent(image2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblPlayer2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8)))
+                        .addComponent(lblPlayer2Chips)))
                 .addGap(17, 17, 17))
         );
 
@@ -406,7 +404,7 @@ public class board extends javax.swing.JFrame {
         });  
     }
     
-    class ListenFromServer extends Thread {
+    public class ListenFromServer extends Thread {                
         
         public void run() {
             
@@ -415,9 +413,69 @@ public class board extends javax.swing.JFrame {
                 try {
                     
                     String msg = (String) sInput.readObject();
-                    // if console mode print the message and add back the prompt
+                    
                     System.out.println(msg);
-                    System.out.print("> ");
+                    
+                    if(msg.contains("New player: "))
+                    {
+                        String newUser = msg.substring(12, msg.length() - 1);                       
+                        
+                        if(!lblPlayer1.getText().equals(newUser) && !lblPlayer2.getText().equals(newUser) && !lblPlayer3.getText().equals(newUser) && !lblPlayer4.getText().equals(newUser) && !lblPlayer5.getText().equals(newUser) & !lblPlayer6.getText().equals(newUser))
+                        {                            
+                            if(lblPlayer2.getText().equals("Empty"))
+                            {
+                                lblPlayer2.setText(newUser);
+                                System.out.println("New player " + newUser + " has connected!");
+                            }
+                            else if(lblPlayer3.getText().equals("Empty"))
+                            {
+                                lblPlayer3.setText(newUser);
+                                System.out.println("New Player " + newUser + " has connected!");
+                            }
+                            else if(lblPlayer4.getText().equals("Empty"))
+                            {
+                                lblPlayer4.setText(newUser);
+                                System.out.println("New Player " + newUser + " has connected!");
+                            }
+                            else if(lblPlayer5.getText().equals("Empty"))
+                            {
+                                lblPlayer5.setText(newUser);
+                                System.out.println("New Player " + newUser + " has connected!");
+                            }
+                            else if(lblPlayer6.getText().equals("Empty"))
+                            {
+                                lblPlayer6.setText(newUser);
+                                System.out.println("New Player " + newUser + " has connected!");
+                            }
+                        }                        
+                    }
+                    else if (msg.contains("cuser:"))
+                    {
+                        String cUser = msg.substring(7, msg.length() - 1);
+
+                        if (!lblPlayer1.getText().equals(cUser) && !lblPlayer2.getText().equals(cUser) && !lblPlayer3.getText().equals(cUser) && !lblPlayer4.getText().equals(cUser) && !lblPlayer5.getText().equals(cUser) & !lblPlayer6.getText().equals(cUser)) {
+
+                            if (lblPlayer2.getText().equals("Empty")) {
+                                lblPlayer2.setText(cUser);
+                                System.out.println("Current player " + cUser + " has connected!");
+                            } else if (lblPlayer3.getText().equals("Empty")) {
+                                lblPlayer3.setText(cUser);
+                                System.out.println("Current Player " + cUser + " has connected!");
+                            } else if (lblPlayer4.getText().equals("Empty")) {
+                                lblPlayer4.setText(cUser);
+                                System.out.println("Current Player " + cUser + " has connected!");
+                            } else if (lblPlayer5.getText().equals("Empty")) {
+                                lblPlayer5.setText(cUser);
+                                System.out.println("Current Player " + cUser + " has connected!");
+                            } else if (lblPlayer6.getText().equals("Empty")) {
+                                lblPlayer6.setText(cUser);
+                                System.out.println("Curretn Player " + cUser + " has connected!");
+                            }
+                        }
+                    }
+                    // if console mode print the message and add back the prompt
+//                    System.out.println(msg);
+//                    System.out.print("> ");
 
                 } catch (IOException e) {
 
@@ -432,24 +490,24 @@ public class board extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel blBoard;
-    private javax.swing.JLabel image2;
-    private javax.swing.JLabel image3;
-    private javax.swing.JLabel image4;
-    private javax.swing.JLabel image6;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel lblPlayer1;
-    private javax.swing.JLabel lblPlayer1Chips;
-    private javax.swing.JLabel lblPlayer2;
-    private javax.swing.JLabel lblPlayer2Chips;
-    private javax.swing.JLabel lblPlayer3;
-    private javax.swing.JLabel lblPlayer3Chips;
-    private javax.swing.JLabel lblPlayer4;
-    private javax.swing.JLabel lblPlayer4Chips;
-    private javax.swing.JLabel lblPlayer5;
-    private javax.swing.JLabel lblPlayer5Chips;
-    private javax.swing.JLabel lblPlayer6;
-    private javax.swing.JLabel lblPlayer6Chips;
+    public static javax.swing.JLabel blBoard;
+    public static javax.swing.JLabel image1;
+    public static javax.swing.JLabel image2;
+    public static javax.swing.JLabel image3;
+    public static javax.swing.JLabel image4;
+    public static javax.swing.JLabel image5;
+    public static javax.swing.JLabel image6;
+    public static javax.swing.JLabel lblPlayer1;
+    public static javax.swing.JLabel lblPlayer1Chips;
+    public static javax.swing.JLabel lblPlayer2;
+    public static javax.swing.JLabel lblPlayer2Chips;
+    public static javax.swing.JLabel lblPlayer3;
+    public static javax.swing.JLabel lblPlayer3Chips;
+    public static javax.swing.JLabel lblPlayer4;
+    public static javax.swing.JLabel lblPlayer5;
+    public static javax.swing.JLabel lblPlayer5Chips;
+    public static javax.swing.JLabel lblPlayer6;
+    public static javax.swing.JLabel lblPlayer6Chips;
+    public static javax.swing.JLabel lblPlayerChips4;
     // End of variables declaration//GEN-END:variables
 }
