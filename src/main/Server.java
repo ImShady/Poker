@@ -15,8 +15,6 @@ import java.util.*;
  **/
 public class Server 
 {
-	// a unique ID for each connection
-	private static int uniqueId;
 	// an ArrayList to keep the list of the Client
 	private ArrayList<ClientThread> al;
 	// if I am in a GUI
@@ -120,12 +118,12 @@ public class Server
     }
 
     // for a client who logoff using the LOGOUT message
-    synchronized void remove(int id) {
+    synchronized void remove(String username) {
         // scan the array list until we found the Id
         for (int i = 0; i < al.size(); ++i) {
             ClientThread ct = al.get(i);
             // found it
-            if (ct.id == id) {
+            if (ct.getUser() == username) {
                 al.remove(i);
                 return;
             }
@@ -156,17 +154,14 @@ public class Server
         Socket socket;
         ObjectInputStream sInput;
         ObjectOutputStream sOutput;
-        // my unique id (easier for deconnection)
-        int id;
         // the Username of the Client
         String username;
         // the only type of message a will receive
-        ChatMessage cm;
+        ChatMessage cm; 
 
         // Constructor
         ClientThread(Socket socket) {
-            // a unique id
-            id = uniqueId++;
+
             this.socket = socket;
             /* Creating both data streams */
             System.out.println("The thread is trying to create input/output streams");
@@ -186,6 +181,7 @@ public class Server
             }
         }
 
+        public String getUser() { return username; }
         // what will run forever
         @Override
         public void run() {
@@ -226,7 +222,7 @@ public class Server
             }
 			// remove myself from the arrayList containing the list of the
             // connected Clients
-            remove(id);
+            remove(username);
             close();
         }
 

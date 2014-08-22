@@ -49,7 +49,7 @@ public class board extends javax.swing.JFrame {
         initComponents();
         lblPlayer1.setText(welcome.getUser());
         int portNumber = 4444;
-        String serverAddress = "135.23.160.82";
+        String serverAddress = "localhost";
         String userName = welcome.getUser();
                 
         // create the Client object
