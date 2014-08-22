@@ -7,6 +7,11 @@
 package main;
 
 import java.awt.Color;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 
 /**
  *
@@ -17,14 +22,142 @@ public class board extends javax.swing.JFrame {
     /**
      * Creates new form board
      */
+    
+    	// for I/O
+	private ObjectInputStream sInput;		// to read from the socket
+	private ObjectOutputStream sOutput;		// to write on the socket
+	private Socket socket = new Socket();
+
+	// if I use a GUI or not
+	//private ClientGUI cg;
+	
+	// the server, the port and the username
+	private String server, username;
+	private int port;
+
+	/*
+	 *  Constructor called by console mode
+	 *  server: the server address
+	 *  port: the port number
+	 *  username: the username
+	 */
+    
     public board()
     {
         this.getContentPane().setBackground(new Color(34,139,34));
         //int players = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter the additional number of players: ", "Players", JOptionPane.QUESTION_MESSAGE));
         initComponents();
-        lblPlayer1.setText(welcome.getUser());        
+        lblPlayer1.setText(welcome.getUser());
+        int portNumber = 4444;
+        String serverAddress = "135.23.160.82";
+        String userName = welcome.getUser();
+                
+        // create the Client object
+        board client = new board(serverAddress, portNumber, userName);
+	// test if we can start the connection to the Server
+        // if it failed nothing we can do
+        
+        if(client.start() == false)
+        {
+            return;
+        }
+        
+//       if(client.start() == false)
+//       {
+//           System.out.println("connection fayuled.");
+//       }
+
+        // wait for messages from user;
+        // loop forever for message from the user
+//        while (true) {
+//            System.out.print("> ");
+//        }
+        // done disconnect
+       // client.disconnect();             
+    }
+    
+    public board(String server, int port, String username)
+    {
+        this(server, port, username, 0);   
+    }
+    
+    board(String server, int port, String username, int x) {
+        this.server = server;
+        this.port = port;
+        this.username = username;
+        // save if we are in GUI mode or not
     }
 
+    public boolean start() {
+        // try to connect to the server
+        try {      
+            //socket = new Socket(server, port);
+            socket.connect(new InetSocketAddress(server, port), 1000);
+        } // if it failed not much I can so
+        catch (Exception ec) {
+            System.out.println("Error connectiong to server:" + ec);
+            return false;
+        }
+        
+        String msg = "Connection accepted " + socket.getInetAddress() + ":" + socket.getPort();
+        System.out.println(msg);
+
+        /* Creating both Data Stream */
+        try {
+            sInput = new ObjectInputStream(socket.getInputStream());
+            sOutput = new ObjectOutputStream(socket.getOutputStream());
+        } catch (IOException eIO) {
+            System.out.println("Exception creating new Input/output Streams: " + eIO);
+            return false;
+        }
+
+        // creates the Thread to listen from the server 
+        new ListenFromServer().start();
+		// Send our username to the server this is the only message that we
+        // will send as a String. All other messages will be ChatMessage objects
+        try {
+            sOutput.writeObject(username);
+        } catch (IOException eIO) {
+            System.out.println("Exception doing login : " + eIO);
+            disconnect();
+            return false;
+        }
+        // success we inform the caller that it worked
+        return true;
+    }
+    
+    private void disconnect() {
+        try {
+            if (sInput != null) {
+                sInput.close();
+            }
+        } catch (Exception e) {
+        } // not much else I can do
+        try {
+            if (sOutput != null) {
+                sOutput.close();
+            }
+        } catch (Exception e) {
+        } // not much else I can do
+        try {
+            if (socket != null) {
+                socket.close();
+            }
+        } catch (Exception e) {
+        } // not much else I can do
+    } 
+
+    /*
+     * To send a message to the server
+     */
+    void sendMessage(ChatMessage msg) {
+        try {
+            sOutput.writeObject(msg);
+        } catch (IOException e) {
+            System.out.println("Exception writing to server: " + e);
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -265,12 +398,37 @@ public class board extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and System.out.println the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new board().setVisible(true);
             }
-        });
+        });  
+    }
+    
+    class ListenFromServer extends Thread {
+        
+        public void run() {
+            
+            while (true) {
+                
+                try {
+                    
+                    String msg = (String) sInput.readObject();
+                    // if console mode print the message and add back the prompt
+                    System.out.println(msg);
+                    System.out.print("> ");
+
+                } catch (IOException e) {
+
+                    System.out.println("Server has closed the connection: " + e);
+
+                    break;
+                } // can't happen with a String object but need the catch anyhow
+                catch (ClassNotFoundException e2) {
+                }
+            }
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
