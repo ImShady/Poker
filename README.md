@@ -1,4 +1,4 @@
 Poker
 =====
 
-Poker game in Java
+Multiplayer (sort of) Poker game in Java
