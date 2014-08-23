@@ -416,40 +416,7 @@ public class board extends javax.swing.JFrame {
                     
                     System.out.println(msg);
                     
-                    if(msg.contains("New player: "))
-                    {
-                        String newUser = msg.substring(12, msg.length() - 1);                       
-                        
-                        if(!lblPlayer1.getText().equals(newUser) && !lblPlayer2.getText().equals(newUser) && !lblPlayer3.getText().equals(newUser) && !lblPlayer4.getText().equals(newUser) && !lblPlayer5.getText().equals(newUser) & !lblPlayer6.getText().equals(newUser))
-                        {                            
-                            if(lblPlayer2.getText().equals("Empty"))
-                            {
-                                lblPlayer2.setText(newUser);
-                                System.out.println("New player " + newUser + " has connected!");
-                            }
-                            else if(lblPlayer3.getText().equals("Empty"))
-                            {
-                                lblPlayer3.setText(newUser);
-                                System.out.println("New Player " + newUser + " has connected!");
-                            }
-                            else if(lblPlayer4.getText().equals("Empty"))
-                            {
-                                lblPlayer4.setText(newUser);
-                                System.out.println("New Player " + newUser + " has connected!");
-                            }
-                            else if(lblPlayer5.getText().equals("Empty"))
-                            {
-                                lblPlayer5.setText(newUser);
-                                System.out.println("New Player " + newUser + " has connected!");
-                            }
-                            else if(lblPlayer6.getText().equals("Empty"))
-                            {
-                                lblPlayer6.setText(newUser);
-                                System.out.println("New Player " + newUser + " has connected!");
-                            }
-                        }                        
-                    }
-                    else if (msg.contains("cuser:"))
+                    if (msg.contains("cuser:"))
                     {
                         String cUser = msg.substring(7, msg.length() - 1);
 
@@ -457,19 +424,19 @@ public class board extends javax.swing.JFrame {
 
                             if (lblPlayer2.getText().equals("Empty")) {
                                 lblPlayer2.setText(cUser);
-                                System.out.println("Player " + cUser + " has connected!");
+                                System.out.println("Player " + cUser + " is connected!");
                             } else if (lblPlayer3.getText().equals("Empty")) {
                                 lblPlayer3.setText(cUser);
-                                System.out.println("Player " + cUser + " has connected!");
+                                System.out.println("Player " + cUser + " is connected!");
                             } else if (lblPlayer4.getText().equals("Empty")) {
                                 lblPlayer4.setText(cUser);
-                                System.out.println("Player " + cUser + " has connected!");
+                                System.out.println("Player " + cUser + " is connected!");
                             } else if (lblPlayer5.getText().equals("Empty")) {
                                 lblPlayer5.setText(cUser);
-                                System.out.println("Player " + cUser + " has connected!");
+                                System.out.println("Player " + cUser + " is connected!");
                             } else if (lblPlayer6.getText().equals("Empty")) {
                                 lblPlayer6.setText(cUser);
-                                System.out.println("Player " + cUser + " has connected!");
+                                System.out.println("Player " + cUser + " is connected!");
                             }
                         }
                     }
