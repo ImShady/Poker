@@ -457,19 +457,19 @@ public class board extends javax.swing.JFrame {
 
                             if (lblPlayer2.getText().equals("Empty")) {
                                 lblPlayer2.setText(cUser);
-                                System.out.println("Current player " + cUser + " has connected!");
+                                System.out.println("Player " + cUser + " has connected!");
                             } else if (lblPlayer3.getText().equals("Empty")) {
                                 lblPlayer3.setText(cUser);
-                                System.out.println("Current Player " + cUser + " has connected!");
+                                System.out.println("Player " + cUser + " has connected!");
                             } else if (lblPlayer4.getText().equals("Empty")) {
                                 lblPlayer4.setText(cUser);
-                                System.out.println("Current Player " + cUser + " has connected!");
+                                System.out.println("Player " + cUser + " has connected!");
                             } else if (lblPlayer5.getText().equals("Empty")) {
                                 lblPlayer5.setText(cUser);
-                                System.out.println("Current Player " + cUser + " has connected!");
+                                System.out.println("Player " + cUser + " has connected!");
                             } else if (lblPlayer6.getText().equals("Empty")) {
                                 lblPlayer6.setText(cUser);
-                                System.out.println("Curretn Player " + cUser + " has connected!");
+                                System.out.println("Player " + cUser + " has connected!");
                             }
                         }
                     }
@@ -479,19 +479,19 @@ public class board extends javax.swing.JFrame {
 
                         if (lblPlayer2.getText().equals(rUser)) {
                             lblPlayer2.setText("Empty");
-                            System.out.println("Current player " + rUser + " has disconnected!");
+                            System.out.println("Player " + rUser + " has disconnected!");
                         } else if (lblPlayer3.getText().equals(rUser)) {
                             lblPlayer3.setText("Empty");
-                            System.out.println("Current Player " + rUser + " has disconnected!");
+                            System.out.println("Player " + rUser + " has disconnected!");
                         } else if (lblPlayer4.getText().equals(rUser)) {
                             lblPlayer4.setText("Empty");
-                            System.out.println("Current Player " + rUser + " has disconnected!");
+                            System.out.println("Player " + rUser + " has disconnected!");
                         } else if (lblPlayer5.getText().equals(rUser)) {
                             lblPlayer5.setText("Empty");
-                            System.out.println("Current Player " + rUser + " has disconnected!");
+                            System.out.println("Player " + rUser + " has disconnected!");
                         } else if (lblPlayer6.getText().equals(rUser)) {
                             lblPlayer6.setText("Empty");
-                            System.out.println("Curretn Player " + rUser + " has disconnected!");
+                            System.out.println("Player " + rUser + " has disconnected!");
                         }
                     }                    
                     // if console mode print the message and add back the prompt
