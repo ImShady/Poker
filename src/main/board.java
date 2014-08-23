@@ -473,6 +473,27 @@ public class board extends javax.swing.JFrame {
                             }
                         }
                     }
+                    else if (msg.contains("remove:"))
+                    {
+                        String rUser = msg.substring(8, msg.length() - 1);                       
+
+                        if (lblPlayer2.getText().equals(rUser)) {
+                            lblPlayer2.setText("Empty");
+                            System.out.println("Current player " + rUser + " has disconnected!");
+                        } else if (lblPlayer3.getText().equals(rUser)) {
+                            lblPlayer3.setText("Empty");
+                            System.out.println("Current Player " + rUser + " has disconnected!");
+                        } else if (lblPlayer4.getText().equals(rUser)) {
+                            lblPlayer4.setText("Empty");
+                            System.out.println("Current Player " + rUser + " has disconnected!");
+                        } else if (lblPlayer5.getText().equals(rUser)) {
+                            lblPlayer5.setText("Empty");
+                            System.out.println("Current Player " + rUser + " has disconnected!");
+                        } else if (lblPlayer6.getText().equals(rUser)) {
+                            lblPlayer6.setText("Empty");
+                            System.out.println("Curretn Player " + rUser + " has disconnected!");
+                        }
+                    }                    
                     // if console mode print the message and add back the prompt
 //                    System.out.println(msg);
 //                    System.out.print("> ");

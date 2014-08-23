@@ -130,6 +130,7 @@ public class Server
             // try to write to the Client if it fails remove it from the list
             if (!ct.writeMsg(messageLf)) {
                 al.remove(i);
+                broadcast("remove: " + ct.username);                
                 System.out.println("Disconnected Client " + ct.username + " removed from list.");
             }
         }
@@ -141,8 +142,6 @@ public class Server
         for (int i = 0; i < al.size(); i++) {
             ClientThread ct = al.get(i);
             // found it
-            System.out.println(ct.username);
-            System.out.println(username);
             if (ct.username.equals(username)) {
                 al.remove(i);
                 broadcast("remove: " + username);
